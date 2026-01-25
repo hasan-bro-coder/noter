@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="shortcut icon" href="/icon.png" />
+    <title>noter</title>
+  </head>
+  <body>
+    <nav>
+      <button id="installBtn" style="display: none">Install</button>
+      <button>new</button>
+      <button>export</button>
+      <button>import</button>
+    </nav>
+    <div>
+      <ul></ul>
+    </div>
+    <dialog>
+      <div>
+        <button id="delete">delete</button>
+        <button id="save">save</button>
+      </div>
+      <textarea name="" id=""></textarea>
+    </dialog>
+    <script type="module" src="/src/main.ts"></script>
+    <script async src="/src/pwa.js"></script>
+  </body>
+</html>
