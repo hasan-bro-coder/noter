@@ -13,7 +13,7 @@ const deleteBtn = dialog.querySelector<HTMLButtonElement>('button:first-child')!
 
 // Get buttons from Nav
 const navButtons = document.querySelectorAll<HTMLButtonElement>('nav button');
-const [newBtn, exportBtn, importBtn] = Array.from(navButtons);
+const [_,newBtn, exportBtn, importBtn] = Array.from(navButtons);
 
 // Initialize State
 let diaryData: DiaryData = JSON.parse(localStorage.getItem('noter_data') || '{}');
