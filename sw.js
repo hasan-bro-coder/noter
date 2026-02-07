@@ -6,6 +6,7 @@ const ASSETS = [
   '/assets/index.js',
   '/manifest.json',
   '/icon.png',
+  '/sw.js'
 ];
 
 // 1. Install Event: Cache all essential files
