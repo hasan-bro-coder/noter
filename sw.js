@@ -2,9 +2,10 @@ const CACHE_NAME = 'noter-v1';
 const ASSETS = [
   '/',
   '/index.html',
-  '/src/main.ts', // Vite will resolve this in dev, but in build it will be different
-  '/style.css',
-  '/manifest.json'
+  '/assets/index.css', // Vite will resolve this in dev, but in build it will be different
+  '/assets/index.js',
+  '/manifest.json',
+  '/icon.png',
 ];
 
 // 1. Install Event: Cache all essential files
@@ -20,8 +21,8 @@ self.addEventListener('install', (event) => {
 self.addEventListener('fetch', (event) => {
   event.respondWith(
     caches.match(event.request).then((response) => {
-      return response || fetch(event.request);
-      // return fetch(event.request);
+    //   return response || fetch(event.request);
+      return fetch(event.request);
 
     })
   );
