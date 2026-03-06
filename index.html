@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.svg" sizes="any" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon-180x180.png" />
+    <meta name="theme-color" content="#0a0a0a" />
+    <title>noter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500&family=Geist:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="app">
+      <!-- Sidebar -->
+      <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+          <span class="sidebar-title">noter</span>
+          <button class="icon-btn" id="toggleSidebar" title="Toggle sidebar">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <rect x="1" y="4" width="14" height="1.2" fill="currentColor" />
+              <rect x="1" y="7.4" width="14" height="1.2" fill="currentColor" />
+              <rect
+                x="1"
+                y="10.8"
+                width="14"
+                height="1.2"
+                fill="currentColor"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="sidebar-actions">
+          <button class="action-btn" id="newBtn">+ new entry</button>
+        </div>
+
+        <div class="sidebar-controls">
+          <input
+            type="date"
+            id="datePicker"
+            class="date-input"
+            title="Pick a date"
+          />
+        </div>
+
+        <nav class="entry-list" id="entryList">
+          <!-- populated by JS -->
+        </nav>
+
+        <div class="sidebar-footer">
+          <button class="ghost-btn" id="exportBtn">export</button>
+          <button class="ghost-btn" id="importBtn">import</button>
+          <input
+            type="file"
+            id="importFile"
+            accept=".json"
+            style="display: none"
+          />
+        </div>
+      </aside>
+
+      <!-- Collapse tab (visible when sidebar is closed on desktop) -->
+      <button class="sidebar-tab" id="sidebarTab" title="Open sidebar">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+          <path
+            d="M5 2l5 5-5 5"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+
+      <!-- Mobile overlay -->
+      <div class="overlay" id="overlay"></div>
+
+      <!-- Main editor -->
+      <main class="editor" id="editor">
+        <div class="editor-header">
+          <div class="editor-date" id="editorDate">—</div>
+          <div class="editor-meta" id="editorMeta"></div>
+        </div>
+
+        <div class="editor-body">
+          <textarea
+            id="noteArea"
+            class="note-area"
+            placeholder="begin writing..."
+            spellcheck="true"
+          ></textarea>
+        </div>
+
+        <div class="editor-footer">
+          <span class="char-count" id="charCount">0 chars</span>
+          <div class="editor-actions">
+            <button
+              class="action-btn danger"
+              id="deleteBtn"
+              style="display: none"
+            >
+              delete
+            </button>
+            <button class="action-btn primary" id="saveBtn">save</button>
+          </div>
+        </div>
+      </main>
+
+      <!-- Empty state -->
+      <div class="empty-state" id="emptyState">
+        <div class="empty-inner">
+          <div class="empty-mark">◇</div>
+          <p>select an entry<br />or create a new one</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast"></div>
+    <div id="pwa-toast">
+      <button id="pwa-close">close</button>
+      <button id="pwa-refresh">refresh</button>
+      <div class="message">
+        <div id="toast-message"></div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
